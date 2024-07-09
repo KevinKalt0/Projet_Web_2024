@@ -18,4 +18,12 @@ export class Message {
 
   @Field(() => Date)
   createdAt: Date;
+
+  constructor() {
+    this.id = '';
+    this.content = '';
+    this.sender = new User();
+    this.conversation = new Conversation();
+    this.createdAt = new Date();
+  }
 }

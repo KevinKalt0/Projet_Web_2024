@@ -9,8 +9,9 @@ export class UsersService {
     return this.users;
   }
 
-  findOne(id: string): User {
-    return this.users.find(user => user.id === id);
+  findOne(id: string): User | null {
+    const user = this.users.find(user => user.id === id);
+    return user || null;
   }
 
   create(user: User): User {
