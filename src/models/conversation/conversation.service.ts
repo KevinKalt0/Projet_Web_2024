@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { Conversation } from './conversation';
-import { User } from '../user/user';
+import { Conversation } from '../../models/conversation/conversation';
+import { User } from '../../models/user/user';
 
 @Injectable()
 export class ConversationsService {
@@ -12,8 +12,9 @@ export class ConversationsService {
     );
   }
 
-  findOne(id: string): Conversation {
-    return this.conversations.find(conversation => conversation.id === id);
+  findOne(id: string): Conversation | null {
+    const conversation = this.conversations.find(conversation => conversation.id === id);
+    return conversation || null;
   }
 
   create(participants: User[]): Conversation {

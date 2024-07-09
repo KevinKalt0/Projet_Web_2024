@@ -10,4 +10,10 @@ export class User {
 
   @Field()
   email: string;
+
+  constructor() {
+    this.id = '';
+    this.username = '';
+    this.email = '';
+  }
 }

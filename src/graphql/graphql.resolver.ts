@@ -4,12 +4,16 @@ import { Resolver, Query, ObjectType, Field } from '@nestjs/graphql';
 class HealthCheckResult {
   @Field()
   result: string;
+
+  constructor(result: string) {
+    this.result = result;
+  }
 }
 
 @Resolver()
 export class GraphqlResolver {
   @Query(() => HealthCheckResult)
   healthCheck(): HealthCheckResult {
-    return { result: 'ok' };
+    return new HealthCheckResult('ok');
   }
 }

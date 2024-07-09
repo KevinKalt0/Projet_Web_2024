@@ -1,8 +1,9 @@
 import { Resolver, Query, Mutation, Args } from '@nestjs/graphql';
 import { ConversationsService } from './conversation.service';
 import { Conversation } from '../conversation/conversation';
-import { UsersService } from 'src/models/user/users.service';
+import { UsersService } from '../user/users.service';
 import { User } from '../user/user';
+
 
 @Resolver(() => Conversation)
 export class ConversationsResolver {
@@ -20,7 +21,10 @@ export class ConversationsResolver {
   createConversation(
     @Args('userIds', { type: () => [String] }) userIds: string[]
   ): Conversation {
-    const participants: User[] = userIds.map(id => this.usersService.findOne(id));
+    const participants: User[] = userIds
+      .map(id => this.usersService.findOne(id))
+      .filter((user): user is User => user !== null);
+
     return this.conversationsService.create(participants);
   }
 }

@@ -12,8 +12,16 @@ export class ConversationsService {
     );
   }
 
-  findOne(id: string): Conversation {
-    return this.conversations.find(conversation => conversation.id === id);
+  findOne(id: string): Conversation | null {
+    const conversation = this.conversations.find(
+      conversation => conversation.id === id
+    );
+  
+    if (!conversation) {
+      return null; 
+    }
+  
+    return conversation;
   }
 
   create(participants: User[]): Conversation {

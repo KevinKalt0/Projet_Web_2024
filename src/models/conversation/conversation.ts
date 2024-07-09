@@ -11,4 +11,10 @@ export class Conversation {
 
   @Field(() => Date)
   createdAt: Date;
+
+  constructor() {
+    this.id = '';
+    this.participants = [];
+    this.createdAt = new Date();
+  }
 }

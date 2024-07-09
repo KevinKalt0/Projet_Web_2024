@@ -13,7 +13,11 @@ export class UsersResolver {
 
   @Query(() => User)
   user(@Args('id') id: string): User {
-    return this.usersService.findOne(id);
+    const user: User | null = this.usersService.findOne(id);
+    if (!user) {
+      throw new Error(`User with ID ${id} not found`);
+    }
+    return user;
   }
 
   @Mutation(() => User)
