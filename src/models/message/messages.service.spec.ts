@@ -20,7 +20,7 @@ describe('MessagesService', () => {
   });
 
   it('should create a message', () => {
-    const sender: User = { id: '1', username: 'test', email: 'test@example.com' };
+    const sender: User = { id: '1', username: 'test', email: 'test@example.com', password: 'test' };
     const conversation: Conversation = {
       id: '1',
       participants: [sender],
@@ -49,7 +49,7 @@ describe('MessagesService', () => {
   });
 
   it('should find messages by conversation ID', () => {
-    const sender: User = { id: '1', username: 'test', email: 'test@example.com' };
+    const sender: User = { id: '1', username: 'test', email: 'test@example.com', password: 'test'};
     const conversation: Conversation = {
       id: '1',
       participants: [sender],

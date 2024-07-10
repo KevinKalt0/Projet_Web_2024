@@ -23,9 +23,10 @@ export class UsersResolver {
   @Mutation(() => User)
   createUser(
     @Args('username') username: string,
-    @Args('email') email: string
+    @Args('email') email: string,
+    @Args('email') password: string
   ): User {
-    const user: User = { id: Date.now().toString(), username, email };
+    const user: User = { id: Date.now().toString(), username, email, password };
     return this.usersService.create(user);
   }
 }

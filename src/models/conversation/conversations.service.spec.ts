@@ -20,8 +20,8 @@ describe('ConversationsService', () => {
 
   it('should create a conversation', () => {
     const participants: User[] = [
-      { id: '1', username: 'user1', email: 'user1@example.com' },
-      { id: '2', username: 'user2', email: 'user2@example.com' }
+      { id: '1', username: 'user1', email: 'user1@example.com', password: 'test' },
+      { id: '2', username: 'user2', email: 'user2@example.com', password: 'test' }
     ];
     const conversation = service.create(participants);
     expect(conversation).toBeDefined();
@@ -32,8 +32,8 @@ describe('ConversationsService', () => {
 
   it('should find a conversation by ID', () => {
     const participants: User[] = [
-      { id: '1', username: 'user1', email: 'user1@example.com' },
-      { id: '2', username: 'user2', email: 'user2@example.com' }
+      { id: '1', username: 'user1', email: 'user1@example.com', password:'test' },
+      { id: '2', username: 'user2', email: 'user2@example.com', password:'test' }
     ];
     const createdConversation = service.create(participants);
     const foundConversation = service.findOne(createdConversation.id);
@@ -46,9 +46,9 @@ describe('ConversationsService', () => {
   });
 
   it('should find conversations by user ID', () => {
-    const user1: User = { id: '1', username: 'user1', email: 'user1@example.com' };
-    const user2: User = { id: '2', username: 'user2', email: 'user2@example.com' };
-    const user3: User = { id: '3', username: 'user3', email: 'user3@example.com' };
+    const user1: User = { id: '1', username: 'user1', email: 'user1@example.com', password: 'test' };
+    const user2: User = { id: '2', username: 'user2', email: 'user2@example.com',password: 'test' };
+    const user3: User = { id: '3', username: 'user3', email: 'user3@example.com', password: 'test'  };
 
     const conversation1 = service.create([user1, user2]);
     const conversation2 = service.create([user1, user3]);

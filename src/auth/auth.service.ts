@@ -1,4 +1,4 @@
-/*import { Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcrypt';
 import { UsersService } from '../models/user/users.service';
@@ -32,4 +32,3 @@ export class AuthService {
     return this.usersService.create({ ...user, password: hashedPassword });
   }
 }
-*/

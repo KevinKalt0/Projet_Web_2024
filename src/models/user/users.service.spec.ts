@@ -18,14 +18,14 @@ describe('UsersService', () => {
   });
 
   it('should create a user', () => {
-    const user: User = { id: '1', username: 'test', email: 'test@example.com' };
+    const user: User = { id: '1', username: 'test', email: 'test@example.com', password:'test' };
     const createdUser = service.create(user);
     expect(createdUser).toEqual(user);
     expect(service.findAll()).toContainEqual(user);
   });
 
   it('should find a user by ID', () => {
-    const user: User = { id: '1', username: 'test', email: 'test@example.com' };
+    const user: User = { id: '1', username: 'test', email: 'test@example.com', password:'test' };
     service.create(user);
     const foundUser = service.findOne('1');
     expect(foundUser).toEqual(user);
@@ -37,8 +37,8 @@ describe('UsersService', () => {
   });
 
   it('should return all users', () => {
-    const user1: User = { id: '1', username: 'test1', email: 'test1@example.com' };
-    const user2: User = { id: '2', username: 'test2', email: 'test2@example.com' };
+    const user1: User = { id: '1', username: 'test1', email: 'test1@example.com', password:'test' };
+    const user2: User = { id: '2', username: 'test2', email: 'test2@example.com', password:'test' };
     service.create(user1);
     service.create(user2);
     const users = service.findAll();

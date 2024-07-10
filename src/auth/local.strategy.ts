@@ -1,4 +1,4 @@
-/*import { PassportStrategy } from '@nestjs/passport';
+import { PassportStrategy } from '@nestjs/passport';
 import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { Strategy } from 'passport-jwt';
@@ -17,4 +17,3 @@ export class LocalStrategy extends PassportStrategy(Strategy) {
     return user;
   }
 }
-*/
