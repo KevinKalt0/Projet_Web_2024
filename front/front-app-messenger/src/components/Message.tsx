@@ -13,7 +13,7 @@ const Message: React.FC<MessageProps> = ({ msg, time, isLink, img, sent }) => {
     // Message container
     <div
       className={`flex justify-center items-center rounded-md w-fit my-1 ${
-        sent ? "bg-[#005c4b] ml-auto" : "bg-[#202d33] mr-auto"
+        sent ? "bg-[#AB47A3] ml-auto" : "bg-[#282E2E] mr-auto"
       }`}
     >
       {/* Image message */}
@@ -26,7 +26,7 @@ const Message: React.FC<MessageProps> = ({ msg, time, isLink, img, sent }) => {
             className="rounded-md max-w-[270px] w-full"
           />
           {/* Time */}
-          <p className="absolute right-2 bottom-3 text-[#8796a1] text-[10px] min-w-[50px]">
+          <p className="absolute right-2 bottom-3 text-white text-[10px] min-w-[50px]">
             {time}
           </p>
         </div>
@@ -50,7 +50,7 @@ const Message: React.FC<MessageProps> = ({ msg, time, isLink, img, sent }) => {
             // Normal text
             <p className="text-white text-sm mr-2">{msg}</p>
           )}
-          <p className="text-[#8796a1] text-[10px] min-w-[50px]">{time}</p>
+          <p className="text-[#a9c9e0] text-[10px] min-w-[50px]">{time}</p>
         </div>
       )}
     </div>

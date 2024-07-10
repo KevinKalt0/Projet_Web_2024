@@ -1,13 +1,15 @@
 //import React, { useState, useEffect } from "react";
 import LeftMenu from "../components/LeftMenu";
 import ChatDetail from "../components/ChatDetail";
+import Login from "../components/Login";
 
 const Nuntia: React.FC = () => {
- 
+const isConnected = true;
   return (
     <>
-    {/*TODO: loading */}
-      
+     {!isConnected ? (
+        <Login  />
+      ) : (
         <div className="w-screen h-screen overflow-hidden">
           {/* 2 components container */}
           <div className="flex justify-start whatsapp-bp:justify-center items-center bg-[#111a21] h-screen">
@@ -22,7 +24,7 @@ const Nuntia: React.FC = () => {
             </div>
           </div>
         </div>
-    
+      )}
     </>
   );
 };

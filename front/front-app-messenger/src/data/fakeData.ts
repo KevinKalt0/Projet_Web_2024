@@ -1,4 +1,20 @@
-import { cs2 } from '../assets/nuntia';
+import {
+  chat1,
+  chat10,
+  chat11,
+  chat12,
+  chat13,
+  chat2,
+  chat3,
+  chat4,
+  chat5,
+  chat6,
+  chat7,
+  chat8,
+  chat9,
+  cs1,
+  cs2,
+} from '../assets/nuntia';
 
 export interface MessageData {
   msg?: string;
@@ -7,6 +23,114 @@ export interface MessageData {
   img?: string;
   sent: boolean;
 }
+export interface ChatData {
+  pp: string;
+  contact: string;
+  msg: string;
+  time: string;
+  unreadMsgs: number | null;
+}
+
+export const chatsData: ChatData[] = [
+  {
+    pp: cs1,
+    contact: 'Coding Spot',
+    msg: 'Awesome, thank you!',
+    time: '1:15 pm',
+    unreadMsgs: null,
+  },
+  {
+    pp: chat1,
+    contact: 'Tom',
+    msg: 'Coding Spot is fire! 🔥',
+    time: '12:15 pm',
+    unreadMsgs: 2,
+  },
+  {
+    pp: chat2,
+    contact: 'Girlfriend ❤️',
+    msg: 'Miss you, call you later!',
+    time: '11:11 am',
+    unreadMsgs: 4,
+  },
+  {
+    pp: chat3,
+    contact: 'Dad',
+    msg: 'Hey dad, need you asap!!',
+    time: '11:04 am',
+    unreadMsgs: null,
+  },
+  {
+    pp: chat4,
+    contact: '+00 123 4567890',
+    msg: 'Who are you???',
+    time: '10:58 am',
+    unreadMsgs: null,
+  },
+  {
+    pp: chat5,
+    contact: 'Coders </>',
+    msg: 'Help me with this bug!! 😭😭',
+    time: '10:50 am',
+    unreadMsgs: 23,
+  },
+  {
+    pp: chat6,
+    contact: 'Mom',
+    msg: 'Call me son, love you. ❤️',
+    time: '10:35 am',
+    unreadMsgs: 2,
+  },
+  {
+    pp: chat7,
+    contact: 'Johnny',
+    msg: 'hahhahhaha lol 😂😂😂',
+    time: '10:18 am',
+    unreadMsgs: null,
+  },
+  {
+    pp: chat8,
+    contact: 'Boss',
+    msg: 'Meeting in 2 hours.',
+    time: '10:02 am',
+    unreadMsgs: null,
+  },
+  {
+    pp: chat9,
+    contact: 'Sarah',
+    msg: 'The test was sooo hard 😓',
+    time: '9:47 am',
+    unreadMsgs: 3,
+  },
+  {
+    pp: chat10,
+    contact: 'Doc 🏥',
+    msg: 'Hey doc, waitng for the results',
+    time: '9:41 am',
+    unreadMsgs: null,
+  },
+  {
+    pp: chat11,
+    contact: 'Best Friend',
+    msg: 'Wanna hang out? 🍺🍻',
+    time: 'yesterday',
+    unreadMsgs: 3,
+  },
+  {
+    pp: chat12,
+    contact: 'Little Bro',
+    msg: 'I love this videogame 🕹🎮',
+    time: 'yesterday',
+    unreadMsgs: 6,
+  },
+  {
+    pp: chat13,
+    contact: 'Professor Elizabeth',
+    msg: 'Forgot to send the task 😭',
+    time: 'yesterday',
+    unreadMsgs: null,
+  },
+];
 
 export const messagesData: MessageData[] = [
   {

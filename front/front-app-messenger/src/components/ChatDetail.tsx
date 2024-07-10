@@ -84,7 +84,7 @@ const ChatDetail: React.FC = () => {
     // ChatDetail main container
     <div className="flex flex-col h-screen">
       {/* Contact nav */}
-      <div className="flex justify-between bg-[#202d33] h-[60px] p-3">
+      <div className="flex justify-between bg-[#282E2E] h-[60px] p-3">
         {/* Contact info */}
         <div className="flex items-center">
           {/* Profile picture */}
@@ -100,7 +100,7 @@ const ChatDetail: React.FC = () => {
             <h1 className="text-white font-medium">Coding Spot</h1>
 
             {/* Status */}
-            <p className="text-[#8796a1] text-xs">online</p>
+            <p className="text-[#24D26D] text-xs">online</p>
           </div>
         </div>
 
@@ -130,7 +130,7 @@ const ChatDetail: React.FC = () => {
       </div>
 
       {/* Bottom section */}
-      <div className="flex items-center bg-[#202d33] w-100 h-[70px] p-2">
+      <div className="flex items-center bg-[#282E2E] w-100 h-[70px] p-2">
         {/* Emoji btn */}
         <RoundedBtn icon={<BiHappy />} onClick={handleEmojiClick} />
 
@@ -143,7 +143,7 @@ const ChatDetail: React.FC = () => {
         <input
           type="text"
           placeholder="Type a message"
-          className="bg-[#2c3943] rounded-lg outline-none text-sm text-neutral-200 w-100 h-100 px-3 placeholder:text-sm placeholder:text-[#8796a1]"
+          className="bg-[#2c3943] rounded-lg outline-none text-sm text-neutral-200 w-100 h-100 px-3 placeholder:text-sm placeholder:text-[#24D26D]"
           onChange={handleInputChange}
           ref={inputRef}
         />
