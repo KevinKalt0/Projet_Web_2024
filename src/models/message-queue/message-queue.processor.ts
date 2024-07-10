@@ -1,6 +1,6 @@
 import { Processor, Process } from '@nestjs/bull';
 import { Job } from 'bull';
-import { MessagesService } from '../messages/messages.service';
+import { MessagesService } from '../message/message.service';
 
 @Processor('message-queue')
 export class MessageQueueProcessor {
@@ -10,7 +10,6 @@ export class MessageQueueProcessor {
   async handleSendMessage(job: Job) {
     const message = job.data;
     console.log('Processing job:', message);
-    // Here you would typically save the message to a database
     this.messagesService.create(message.content, message.sender, message.conversation);
   }
 }

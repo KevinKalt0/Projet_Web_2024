@@ -7,9 +7,8 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './models/user/users.module';
 import { ConversationsModule } from './conversations/conversations.module';
-import { MessagesModule } from './messages/messages.module';
-import { MessageQueueModule } from './message-queue/message-queue.module';
-
+import { MessagesModule } from './models/message/message.module';
+import { MessageQueueModule } from './models/message-queue/message-queue.module';
 
 @Module({
   imports: [

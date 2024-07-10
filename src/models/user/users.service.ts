@@ -10,8 +10,11 @@ export class UsersService {
   }
 
   findOne(id: string): User | null {
-    const user = this.users.find(user => user.id === id);
-    return user || null;
+    return this.users.find(user => user.id === id) || null;
+  }
+
+  findByUsername(username: string): User | null {
+    return this.users.find(user => user.username === username) || null;
   }
 
   create(user: User): User {
