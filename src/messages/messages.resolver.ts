@@ -13,7 +13,7 @@ export class MessagesResolver {
     private readonly messagesService: MessagesService,
     private readonly usersService: UsersService,
     private readonly conversationsService: ConversationsService,
-    private readonly messageQueueService: MessageQueueService
+    private readonly messageQueueService: MessageQueueService,
   ) {}
 
   @Query(() => [Message])
@@ -25,10 +25,11 @@ export class MessagesResolver {
   async sendMessage(
     @Args('content') content: string,
     @Args('senderId') senderId: string,
-    @Args('conversationId') conversationId: string
+    @Args('conversationId') conversationId: string,
   ): Promise<Message> {
     const sender: User = this.usersService.findOne(senderId);
-    const conversation: Conversation = this.conversationsService.findOne(conversationId);
+    const conversation: Conversation =
+      this.conversationsService.findOne(conversationId);
     const message: Message = {
       id: Date.now().toString(),
       content,
