@@ -5,9 +5,10 @@ import { HiDotsVertical } from "react-icons/hi";
 import { BiHappy } from "react-icons/bi";
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { BsFillMicFill } from "react-icons/bs";
-import { cs1, cs2 } from "../assets/nuntia";
+import { chat4, cs2 } from "../assets/nuntia";
 import Message from "./Message";
 import { messagesData } from "../data/fakeData";
+import { getTime } from "../logic/getTime";
 
 interface MessageType {
   msg?: string;
@@ -89,7 +90,7 @@ const ChatDetail: React.FC = () => {
         <div className="flex items-center">
           {/* Profile picture */}
           <img
-            src={cs1}
+            src={chat4}
             alt="profile_picture"
             className="rounded-full w-[45px] h-[45px] mr-5"
           />
@@ -97,10 +98,10 @@ const ChatDetail: React.FC = () => {
           {/* Info */}
           <div className="flex flex-col">
             {/* Contact */}
-            <h1 className="text-white font-medium">Coding Spot</h1>
+            <h1 className="text-white font-medium">Kevin</h1>
 
             {/* Status */}
-            <p className="text-[#E3BAD5] text-xs">online</p>
+            <p className="text-[#24D26D] text-xs">online</p>
           </div>
         </div>
 
@@ -143,7 +144,7 @@ const ChatDetail: React.FC = () => {
         <input
           type="text"
           placeholder="Type a message"
-          className="bg-[#2c3943] rounded-lg outline-none text-sm text-neutral-200 w-100 h-100 px-3 placeholder:text-sm placeholder:text-gray-500"
+          className="bg-[#2c3943] rounded-lg outline-none text-sm text-neutral-200 w-full h-100 px-3 placeholder:text-sm placeholder:text-gray-500"
           onChange={handleInputChange}
           ref={inputRef}
         />
@@ -162,7 +163,5 @@ const ChatDetail: React.FC = () => {
 }
 
 export default ChatDetail;
-function getTime(): string {
-  throw new Error("Function not implemented.");
-}
+
 

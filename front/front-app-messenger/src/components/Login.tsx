@@ -1,26 +1,52 @@
 import React, { useState } from "react";
+import { useMutation, gql } from "@apollo/client";
 import { TbMessageCirclePause } from "react-icons/tb";
+
+// GraphQL Mutations
+const SIGNUP_MUTATION = gql`
+  mutation SignUp($email: String!, $password: String!) {
+    register(email: $email, password: $password) {
+      access_token
+    }
+  }
+`;
+
+const SIGNIN_MUTATION = gql`
+  mutation SignIn($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      access_token
+    }
+  }
+`;
 
 const Login: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
+  const [signUp] = useMutation(SIGNUP_MUTATION);
+  const [signIn] = useMutation(SIGNIN_MUTATION);
+
   const handleSwitchMode = () => {
     setIsSignUp(!isSignUp);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log("Email:", email);
-    console.log("Password:", password);
-    if (isSignUp) {
-      // Handle sign up
-      console.log("Sign Up");
-    } else {
-      // Handle sign in
-      console.log("Sign In");
+    try {
+      if (isSignUp) {
+        const { data } = await signUp({ variables: { email, password } });
+        console.log("Sign Up Success:", data);
+        // Store token in local storage or context
+        localStorage.setItem("token", data.register.access_token);
+      } else {
+        const { data } = await signIn({ variables: { email, password } });
+        console.log("Sign In Success:", data);
+        // Store token in local storage or context
+        localStorage.setItem("token", data.login.access_token);
+      }
+    } catch (error) {
+      console.error("Error during authentication:", error);
     }
   };
 

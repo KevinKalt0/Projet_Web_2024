@@ -12,7 +12,6 @@ import {
   chat7,
   chat8,
   chat9,
-  cs1,
   cs2,
 } from '../assets/nuntia';
 
@@ -33,23 +32,23 @@ export interface ChatData {
 
 export const chatsData: ChatData[] = [
   {
-    pp: cs1,
-    contact: 'Coding Spot',
-    msg: 'Awesome, thank you!',
+    pp: chat4,
+    contact: 'Kevin',
+    msg: 'Awesome, thank for your support! 🙌',
     time: '1:15 pm',
     unreadMsgs: null,
   },
   {
     pp: chat1,
-    contact: 'Tom',
-    msg: 'Coding Spot is fire! 🔥',
+    contact: 'JayJay',
+    msg: 'Nuntia is fire! 🔥',
     time: '12:15 pm',
     unreadMsgs: 2,
   },
   {
     pp: chat2,
-    contact: 'Girlfriend ❤️',
-    msg: 'Miss you, call you later!',
+    contact: 'Mom ❤️',
+    msg: 'I need to tell u sum!',
     time: '11:11 am',
     unreadMsgs: 4,
   },
@@ -62,7 +61,7 @@ export const chatsData: ChatData[] = [
   },
   {
     pp: chat4,
-    contact: '+00 123 4567890',
+    contact: '+33 6 73 34 16 17',
     msg: 'Who are you???',
     time: '10:58 am',
     unreadMsgs: null,
