@@ -34,8 +34,18 @@ describe('MessagesService', () => {
       createdAt: new Date(),
     };
     const createdMessage = service.create(message.content, sender, conversation);
-    expect(createdMessage).toMatchObject(message);
-    expect(service.findByConversation('1')).toContainEqual(message);
+    
+    // Comparaison flexible en excluant les champs dynamiques
+    expect(createdMessage).toMatchObject({
+      content: message.content,
+      sender: message.sender,
+      conversation: message.conversation,
+    });
+    expect(service.findByConversation('1')).toContainEqual(expect.objectContaining({
+      content: message.content,
+      sender: message.sender,
+      conversation: message.conversation,
+    }));
   });
 
   it('should find messages by conversation ID', () => {
@@ -62,6 +72,11 @@ describe('MessagesService', () => {
     service.create(message1.content, sender, conversation);
     service.create(message2.content, sender, conversation);
     const messages = service.findByConversation('1');
-    expect(messages).toEqual([message1, message2]);
+    
+    // Comparaison flexible en excluant les champs dynamiques
+    expect(messages).toEqual([
+      expect.objectContaining({ content: message1.content, sender: message1.sender, conversation: message1.conversation }),
+      expect.objectContaining({ content: message2.content, sender: message2.sender, conversation: message2.conversation }),
+    ]);
   });
 });
