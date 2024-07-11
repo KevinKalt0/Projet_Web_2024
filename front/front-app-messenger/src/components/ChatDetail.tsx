@@ -5,9 +5,10 @@ import { HiDotsVertical } from "react-icons/hi";
 import { BiHappy } from "react-icons/bi";
 import { AiOutlinePaperClip } from "react-icons/ai";
 import { BsFillMicFill } from "react-icons/bs";
-import { cs1, cs2 } from "../assets/nuntia";
+import { chat4, cs2 } from "../assets/nuntia";
 import Message from "./Message";
 import { messagesData } from "../data/fakeData";
+import { getTime } from "../logic/getTime";
 
 interface MessageType {
   msg?: string;
@@ -84,12 +85,12 @@ const ChatDetail: React.FC = () => {
     // ChatDetail main container
     <div className="flex flex-col h-screen">
       {/* Contact nav */}
-      <div className="flex justify-between bg-[#282E2E] h-[60px] p-3">
+      <div className="flex justify-between bg-[#211A44] h-[60px] p-3">
         {/* Contact info */}
         <div className="flex items-center">
           {/* Profile picture */}
           <img
-            src={cs1}
+            src={chat4}
             alt="profile_picture"
             className="rounded-full w-[45px] h-[45px] mr-5"
           />
@@ -97,7 +98,7 @@ const ChatDetail: React.FC = () => {
           {/* Info */}
           <div className="flex flex-col">
             {/* Contact */}
-            <h1 className="text-white font-medium">Coding Spot</h1>
+            <h1 className="text-white font-medium">Kevin</h1>
 
             {/* Status */}
             <p className="text-[#24D26D] text-xs">online</p>
@@ -130,7 +131,7 @@ const ChatDetail: React.FC = () => {
       </div>
 
       {/* Bottom section */}
-      <div className="flex items-center bg-[#282E2E] w-100 h-[70px] p-2">
+      <div className="flex items-center bg-[#211A44] w-100 h-[70px] p-2">
         {/* Emoji btn */}
         <RoundedBtn icon={<BiHappy />} onClick={handleEmojiClick} />
 
@@ -143,7 +144,7 @@ const ChatDetail: React.FC = () => {
         <input
           type="text"
           placeholder="Type a message"
-          className="bg-[#2c3943] rounded-lg outline-none text-sm text-neutral-200 w-100 h-100 px-3 placeholder:text-sm placeholder:text-[#24D26D]"
+          className="bg-[#2c3943] rounded-lg outline-none text-sm text-neutral-200 w-full h-100 px-3 placeholder:text-sm placeholder:text-gray-500"
           onChange={handleInputChange}
           ref={inputRef}
         />
@@ -162,7 +163,5 @@ const ChatDetail: React.FC = () => {
 }
 
 export default ChatDetail;
-function getTime(): string {
-  throw new Error("Function not implemented.");
-}
+
 

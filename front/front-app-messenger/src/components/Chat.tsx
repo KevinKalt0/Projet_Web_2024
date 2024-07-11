@@ -13,8 +13,8 @@ const Chat: React.FC<ChatProps> = ({ pp, contact, msg, time, unreadMsgs, active 
   return (
     // Chat container
     <div
-      className={`flex justify-between items-center cursor-pointer w-100 h-[85px] px-3 hover:bg-[#282E2E] ${
-        active ? "bg-[#282E2E]" : ""
+      className={`flex justify-between items-center cursor-pointer w-100 h-[85px] px-3 hover:bg-[#211A44] ${
+        active ? "bg-[#211A44]" : ""
       }`}
     >
       {/* Profile picture */}
@@ -40,7 +40,7 @@ const Chat: React.FC<ChatProps> = ({ pp, contact, msg, time, unreadMsgs, active 
         {/* Time and number of messages*/}
         <div className="flex flex-col justify-between items-end h-100 text-xs">
           {/* Time */}
-          <p className="text-[#24D26D] min-w-[55px]">{time}</p>
+          <p className="text-[#E3BAD5] min-w-[55px]">{time}</p>
 
           {/* Number of messages */}
           {unreadMsgs && (
