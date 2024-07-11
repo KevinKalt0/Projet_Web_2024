@@ -1,24 +1,24 @@
 import { Injectable } from '@nestjs/common';
-import { User } from './user';
+import { User } from './user.entity';
 
 @Injectable()
 export class UsersService {
   private users: User[] = [];
 
-  findAll(): User[] {
-    return this.users;
+  async findByEmail(email: string): Promise<User | undefined> {
+    return this.users.find(user => user.email === email);
   }
 
-  findOne(id: string): User | null {
-    return this.users.find(user => user.id === id) || null;
+  async findById(id: string): Promise<User | undefined> {
+    return this.users.find(user => user.id === id);
   }
 
-  findByUsername(username: string): User | null {
-    return this.users.find(user => user.username === username) || null;
-  }
-
-  create(user: User): User {
-    this.users.push(user);
-    return user;
+  async create(user: Partial<User>): Promise<User> {
+    const newUser = {
+      ...user,
+      id: Date.now().toString(),
+    } as User;
+    this.users.push(newUser);
+    return newUser;
   }
 }

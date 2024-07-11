@@ -10,10 +10,8 @@ export class AuthResolver {
   async register(
     @Args('email') email: string,
     @Args('password') password: string,
-    @Args('email') id: string,
-    @Args('password') username: string,
   ): Promise<AuthResponse> {
-    return this.authService.register(email, password, id, username);
+    return this.authService.register(email, password);
   }
 
   @Mutation(() => AuthResponse)

@@ -7,6 +7,7 @@
     "skipLibCheck": true,
     "outDir": "./dist",
     "baseUrl": "back/src",
+    "types": ["node", "jest"],
     "paths": {
       "@/*": ["./*"]
     },

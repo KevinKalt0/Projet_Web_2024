@@ -7,7 +7,7 @@ const Nuntia: React.FC = () => {
 const isConnected = true;
   return (
     <>
-     {isConnected ? (
+     {!isConnected ? (
         <Login  />
       ) : (
         <div className="w-screen h-screen overflow-hidden">
