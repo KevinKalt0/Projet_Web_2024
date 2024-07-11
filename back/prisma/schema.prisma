@@ -1,0 +1,43 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id            String         @id @default(uuid())
+  username      String         @unique
+  email         String         @unique
+  password      String
+  messages      Message[]
+  conversations UserOnConversation[]
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  content        String
+  senderId       String
+  conversationId String
+  createdAt      DateTime     @default(now())
+  sender         User         @relation(fields: [senderId], references: [id])
+  conversation   Conversation @relation(fields: [conversationId], references: [id])
+}
+
+model Conversation {
+  id            String             @id @default(uuid())
+  createdAt     DateTime           @default(now())
+  messages      Message[]
+  participants  UserOnConversation[]
+}
+
+model UserOnConversation {
+  userId        String
+  conversationId String
+  user          User           @relation(fields: [userId], references: [id])
+  conversation  Conversation   @relation(fields: [conversationId], references: [id])
+
+  @@id([userId, conversationId])
+}

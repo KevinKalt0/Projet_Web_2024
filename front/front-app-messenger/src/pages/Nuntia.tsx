@@ -1,0 +1,32 @@
+//import React, { useState, useEffect } from "react";
+import LeftMenu from "../components/LeftMenu";
+import ChatDetail from "../components/ChatDetail";
+import Login from "../components/Login";
+
+const Nuntia: React.FC = () => {
+const isConnected = true;
+  return (
+    <>
+     {!isConnected ? (
+        <Login  />
+      ) : (
+        <div className="w-screen h-screen overflow-hidden">
+          {/* 2 components container */}
+          <div className="flex justify-start whatsapp-bp:justify-center items-center bg-[#111a21] h-screen">
+            {/* LeftMenu */}
+            <div className="bg-[#111a21] min-w-[340px] max-w-[500px] w-full h-full">
+              <LeftMenu />
+            </div>
+
+            {/* ChatDetail */}
+            <div className="bg-[#222f35] min-w-[415px] max-w-[1120px] w-full h-full">
+              <ChatDetail />
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+};
+
+export default Nuntia;
