@@ -37,18 +37,25 @@ const Login: React.FC = () => {
       if (isSignUp) {
         const { data } = await signUp({ variables: { email, password } });
         console.log("Sign Up Success:", data);
-        // Store token in local storage or context
-        localStorage.setItem("token", data.register.access_token);
+        if (data && data.register && data.register.access_token) {
+          localStorage.setItem("token", data.register.access_token);
+          // Rediriger ou mettre à jour l'état pour passer à la page suivante
+          window.location.reload(); // ou une autre méthode de navigation
+        }
       } else {
         const { data } = await signIn({ variables: { email, password } });
         console.log("Sign In Success:", data);
-        // Store token in local storage or context
-        localStorage.setItem("token", data.login.access_token);
+        if (data && data.login && data.login.access_token) {
+          localStorage.setItem("token", data.login.access_token);
+          // Rediriger ou mettre à jour l'état pour passer à la page suivante
+          window.location.reload(); // ou une autre méthode de navigation
+        }
       }
     } catch (error) {
       console.error("Error during authentication:", error);
     }
   };
+  
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-[#211A44]">
