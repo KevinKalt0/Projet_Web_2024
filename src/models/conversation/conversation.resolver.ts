@@ -9,7 +9,7 @@ import { User } from '../user/user';
 export class ConversationsResolver {
   constructor(
     private readonly conversationsService: ConversationsService,
-    private readonly usersService: UsersService,
+    private readonly usersService: UsersService
   ) {}
 
   @Query(() => [Conversation])
