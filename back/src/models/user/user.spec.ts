@@ -1,3 +1,4 @@
+import { describe, it } from 'node:test';
 import { User } from './user';
 
 describe('User', () => {

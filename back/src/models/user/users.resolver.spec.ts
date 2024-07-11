@@ -8,8 +8,8 @@ describe('UsersResolver', () => {
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [], // Si vous avez besoin d'importer d'autres modules
-      providers: [UsersResolver, UsersService], // Ajoutez UsersService ici
+      imports: [],
+      providers: [UsersResolver, UsersService],
     }).compile();
 
     resolver = module.get<UsersResolver>(UsersResolver);

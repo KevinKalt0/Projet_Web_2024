@@ -36,7 +36,6 @@ describe('MessagesService', () => {
     };
     const createdMessage = service.create(message.content, sender, conversation);
     
-    // Comparaison flexible en excluant les champs dynamiques
     expect(createdMessage).toMatchObject({
       content: message.content,
       sender: message.sender,
@@ -74,7 +73,6 @@ describe('MessagesService', () => {
     service.create(message2.content, sender, conversation);
     const messages = service.findByConversation('1');
     
-    // Comparaison flexible en excluant les champs dynamiques
     expect(messages).toEqual([
       expect.objectContaining({ content: message1.content, sender: message1.sender, conversation: message1.conversation }),
       expect.objectContaining({ content: message2.content, sender: message2.sender, conversation: message2.conversation }),
