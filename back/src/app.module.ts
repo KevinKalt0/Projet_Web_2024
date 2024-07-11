@@ -4,7 +4,7 @@ import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './models/user/users.module';
-import { ConversationsModule } from './conversations/conversations.module';
+import { ConversationsModule } from './models/conversation/conversation.module';
 import { MessagesModule } from './models/message/message.module';
 import { MessageQueueModule } from './models/message-queue/message-queue.module';
 import { GraphQLModule } from '@nestjs/graphql';
